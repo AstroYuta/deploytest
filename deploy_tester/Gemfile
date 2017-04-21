@@ -27,6 +27,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
+gem 'bindex', '~> 0.5.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -51,3 +53,17 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'dotenv-rails' #環境変数を簡単に扱うのに使用
+
+group :development, :test do
+  gem 'capistrano', '~> 3.4.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv' 
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn' #Unicornの起動を簡単に行える
+end
+
+group :production, :staging do
+  gem 'unicorn'
+end
